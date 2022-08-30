@@ -1,0 +1,25 @@
+ - Show off the Django home page and discuss what it's good for
+ - once in the folder run "python -m venv django-env"
+ - then run "source django-env/bin/activate" to enter in to the newly set up virtual environment
+ - then run "python -m pip install django" to install django
+ - alternative is "pipenv install django" and then "pipenv shell"
+ - once django is installed try: "django-admin startproject shelter" this should create 2 folders, django-env and shelter
+ - dig around the different folders and see what is going on, manage.py is what runs all our commands
+ - cd into shelter and then run "python manage.py runserver", don't owrry about the initial 18 migration errors, follow the link and we should see a rocket ship
+ - explain we are going to try and build a dog adoption website database
+ - run "python manage.py startapp adoption"
+ - go over that __init__.py registers this as a package
+ - update the views.py page to add a couple of views and import a view displayer
+ - then add a new file to the same folder (adoption) called urls.py and add in the code to get the urls working
+ - make sure to go to shelter/settings.py and add "adoption.apps.AdoptionConfig" to the list of INSTALLED APPS
+ - then go to shelter/urls.py and add the urlpattern at the bottom: path('adoption/', include("adoption.urls"))
+ - check everything is saved and then re-run the server with "python manage.py runserver"
+ - fill in adoption/views.py with a couple more views and give it some dogos
+ - then go to adoption/urls.py and fill in the new url options for dogs and show
+ - urls.py is purely for the adoption app where as urls.py in the shelter is for the entrie project
+
+ Templates
+ - add a templates folder to adoption folder and add in base.html witha mixture of boilerplate code and some block text content
+ - then add in home.html which extneds the base
+ - then update the views.py in adoptions and make it render the html file instead of what it used to do
+ - finally add a dogs.html page in templates and again update the views.py file
